@@ -38,6 +38,6 @@
     "grunt-contrib-concat": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-clean": "latest",
-    "phantomjs": "latest"
+    "phantomjs": "1.9.1-0"
   }
 }

@@ -89,7 +89,7 @@ angular.module('angulartics', [])
   }
 }])
 
-.directive('analyticsOn', ['$analytics', function ($analytics) {
+.directive('analyticsOn', ['$analytics', '$interpolate', function ($analytics, $interpolate) {
   function isCommand(element) {
     return ['a:','button:','button:button','button:submit','input:button','input:submit'].indexOf(
       element.tagName.toLowerCase()+':'+(element.type||'')) >= 0;
@@ -119,7 +119,7 @@ angular.module('angulartics', [])
       var properties = {};
       angular.forEach($attrs.$attr, function(attr, name) {
         if (isProperty(attr)) {
-          properties[name.slice(9).toLowerCase()] = $attrs[name];
+          properties[name.slice(9).toLowerCase()] = $interpolate($attrs[name])($scope);
         }
       });
 
